@@ -1,24 +1,297 @@
-extends base
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-block title
-  if page.category
-     title= page.category + ' | ' + config.title
-  if page.tag
-     title= page.tag + ' | ' + config.title
-  if page.archive
-     title= __('archive') + ' | ' + config.title
-block content
-  if page.category || page.tag
-      h1.label-title=  __('reading_label', page.category || page.tag)
-  .post
-    .post-archive
-        //Use lodash to classify posts. See https://lodash.com/docs#groupBy
-        each posts, year in _.groupBy(page.posts.toArray(), function(p){return -p.date.format('YYYY')})
-          h2= -year
-          ul.listing
-            for post in posts
-              li
-                span.date= post.date.format('YYYY/MM/DD')
-                a(href=url_for(post.path), title=post.title)
-                  +title(post)
-  include _partial/paginator.jade
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Marios Posts">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.2.x" />
+
+
+
+<link rel="canonical" href="http://color4.win/archives/"/>
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marios Posts">
+<meta property="og:url" content="http://color4.win/archives/index.html">
+<meta property="og:site_name" content="Marios Posts">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Marios Posts">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.2.x" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    search: {
+      enable: true,
+      path: "/search.xml",
+    },
+    navbar: {
+      enable: true
+    },
+    fancybox: {
+      enable: true
+    },
+    toc: {
+      enable: true
+    },
+  };
+</script>
+
+
+
+  
+
+
+
+    <title>
+  
+    Archives · Marios Posts
+  
+</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Marios Posts</a>
+</div>
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+        <li class="menu-search">
+          <form>
+            <i class="iconfont icon-search" id="open-search"></i>
+            <input type="text" class="search-input" id="search-input" />
+            <i class="iconfont icon-close" id="close-search"></i>
+          </form>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+<div class="mobile-navbar">
+  <div class="mobile-header">
+    <div class="mobile-header-logo">
+      <a href="/." class="logo">Marios Posts</a>
+    </div>
+
+    <div class="mobile-header-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav class="mobile-menu">
+    
+      <a class="mobile-menu-item" href="/">
+        
+        
+          Home
+        
+      </a>
+    
+      <a class="mobile-menu-item" href="/archives/">
+        
+        
+          Archives
+        
+      </a>
+    
+  </nav>
+</div>
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <section id="archive" class="archive">
+    
+      
+        <div class="archive-title">
+          <h2 class="archive-name"> All </h2>
+          <span class="archive-post-counter">
+            1 Post
+          </span>
+        </div>
+      
+    
+
+    
+      
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h2 class="archive-year">2017</h2>
+          </div>
+        
+      
+      
+      <div class="archive-post">
+        <span class="archive-post-time">
+          
+            03-01
+          
+        </span>
+        <span class="archive-post-title">
+          <a href="/2017/03/01/hello-world/" class="archive-post-link">
+            Hello World
+          </a>
+        </span>
+      </div>
+    
+  </section>
+
+  
+  <nav class="pagination">
+    
+    
+  </nav>
+
+
+
+          </div>
+          
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Marioni</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.2.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.2.x"></script>
+
+  </body>
+</html>
